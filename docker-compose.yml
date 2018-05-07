@@ -1,0 +1,32 @@
+version: '2'
+services:
+  zcash:
+    build:
+      context: ./zcash-client
+    mem_limit: 2000M
+    cpu_quota: 30000
+    volumes:
+      - "/data/data1/zcash/.zcash:/root/.zcash"
+    ports:
+    - "8331:8331"
+    tty: true
+    container_name: zcash
+  research:
+    build:
+      context: ./research
+    tty: true
+    container_name: research
+    volumes:
+      - "/data/data1/zcash/research:/root/research"
+  zcashpostgres:
+    build:
+      context: ./zcashpostgres
+    mem_limit: 1000M
+    cpu_quota: 40000
+    volumes:
+      - "/data/data1/zcash/pgdata:/var/run/postgresql/data/pgdata"
+      - "/data/data1/zcash/research:/root/research"
+    ports:
+    - "8001:5432"
+    container_name: zcashpostgres
+
