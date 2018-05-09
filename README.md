@@ -1,5 +1,16 @@
 # zcash-empirical-analysis
 
+This is the source code used in the research paper:
+
+**An Empricial Analysis of Anonymity in Zcash**
+
+*George Kappos, Haaroon Yousaf, Mary Maller, Sarah Meiklejohn
+
+27th USENIX Security Symposium (2018, to appear)* 
+
+https://arxiv.org/abs/1805.03180
+
+
 Please read this `README.md` from start to finish before attempting the analysis.
 
 # Prequisites
