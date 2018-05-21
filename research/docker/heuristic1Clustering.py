@@ -16,7 +16,7 @@ It computes address statistics, clusters the addresses and creates cluster stati
     8. Then it computes some basic stats over the clusters: 
        total unique addresses, total number of txs, largest cluster, 
        sizes of the top 5, 10, 25, 50, 100 clusters 
-    9. Optionally you can run the function to peform a sanity check, this takes the longest amount of time. 
+    9. Optionally you can run the function to perform a sanity check, this takes the longest amount of time. 
        The sanity check compares every single cluster to each other cluster and does a set intersection.
        Why a set intersection? To identify if a) an address is found once, and only once,
        in all clusters. If an address was found in another cluster, then there has been a mistake. If this prints that 0 intersections were found, it means 
@@ -105,8 +105,8 @@ def generateClusters(txs):
                 firstRun = False
             if not firstRun:
                 nodeBefore = node
-    # we only join the first node to every other, why? because its an multigraph graph, it makes the computation
-    # faster plus, we dont really care about how many nodes linked to others, rather if there was a link at all
+    # we only join the first node to every other, why? because it's a multigraph graph, it makes the computation
+    # faster plus, we don't really care about how many nodes linked to others, rather if there was a link at all
     # we then look for the connected components, cause these are the clusters
     print "Graph complete"
     # Connected subs
@@ -119,7 +119,7 @@ def generateClusters(txs):
 
 def clusterStats(txs, clusters, graph, addressStats, distinctnodeandtxs, writeToFile, path):
     # get address stats
-    # this takes a while cause pkl is big man, im talking gigas
+    # this takes a while cause pkl is big man, I'm talking gigas
     md = "# Heuristic 1 info\n\n"
     print "Finding stats"
     print time.strftime("%d-%m-%Y %H:%M:%S")
@@ -208,7 +208,7 @@ def clusterStats(txs, clusters, graph, addressStats, distinctnodeandtxs, writeTo
                 total_vins_count += addressStats[addr]['vins_count']
                 total_vouts_count += addressStats[addr]['vouts_count']
             else:
-                print "cant find address"
+                print "can't find address"
                 print addr
 
         distinct_txs = list(set(distinct_txs))
@@ -411,7 +411,7 @@ def convertAddressStats(path):
                     'pool_recv': 0.0 if row["pool_recv"] is None else row['pool_recv'],
                 }
             except Exception as e:
-                print "Error occured during processing"
+                print "Error occurred during processing"
                 print e
                 print row
                 sys.exit(1)

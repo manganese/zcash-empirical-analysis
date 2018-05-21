@@ -137,7 +137,7 @@ if [ "$1" = 'postgres' ]; then
 		pg_ctl -D "$PGDATA" -m fast -w stop
 
 		echo
-		echo 'PostgreSQL init process complete; ready for start up.'
+		echo 'PostgreSQL init process complete; ready for startup.'
 		echo
 	fi
 fi

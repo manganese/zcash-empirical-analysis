@@ -1,5 +1,5 @@
 '''
-Generated address based statistics such as coins sent, coins received, currnet coins,
+Generated address based statistics such as coins sent, coins received, current coins,
 transactions sent and received, blocks mined, estimated amount in pool.
 '''
 
