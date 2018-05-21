@@ -24,7 +24,7 @@ import dbLib
 
 def checkZcashCLI():
     """
-    Checks if the Zcashd is running
+    Checks if zcashd is running
     Prints stuff, returns nothing or exits the program
     """
     print("Setting environment variable to mainnet")
@@ -95,7 +95,7 @@ def rpcConnection():
             sys.exit(1)
         except Exception as e:
             # apologies for bad exception catching
-            print("Socket error when connecting to rpc")
+            print("Socket error when connecting to RPC")
             print(e)
             print("Waiting 5 seconds then trying again")
             time.sleep(5)
@@ -245,7 +245,7 @@ def updateDatabase(currentBlockHeight, latestBlock):
                 )
             #print("Processed tx :", tx_hash)
             objects.append(transaction)
-            # now check the values to see if its a coingen, vin, vout and vjoinsplit fields
+            # now check the values to see if it's a coingen, vin, vout and vjoinsplit fields
             all_src_addresses = []
             if len(tx["vin"]):
                 for val in tx["vin"]:
@@ -273,7 +273,7 @@ def updateDatabase(currentBlockHeight, latestBlock):
                         #     print("Could not find TX, no information")
                         #     print("Setting value to False")
                         #     skip = 1
-                        # else its a normal vin duh
+                        # else it's a normal vin duh
                         vin = table_classes.Vin(
                             tx_hash = tx_hash,
                             prevout_hash = prevout_hash,
@@ -314,7 +314,7 @@ def updateDatabase(currentBlockHeight, latestBlock):
                     # t-z
                     # z-t
                     # t-z
-                    # dont use the crappy all_src_address value
+                    # don't use the crappy all_src_address value
                     dest_addr = []
                     if len(tx["vout"])==0 and len(tx["vin"])==0 and float(val["vpub_new"])>0.0:
                         # this is change
@@ -343,7 +343,7 @@ def updateDatabase(currentBlockHeight, latestBlock):
 
 def checkStatus():
     """
-    Checks if the ZCash process and PostGreSQL databases are active
+    Checks if the Zcash process and PostGreSQL databases are active
     """
     checkZcashCLI()
     checkPostGreSQL()
