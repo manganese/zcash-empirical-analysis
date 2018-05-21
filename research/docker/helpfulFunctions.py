@@ -99,7 +99,7 @@ def initiateSpark():
     create the configuration file and spark environment
     :return: SparkContext and SQLContext
     '''
-    print("Initialisiing an instance of Apache Spark")
+    print("Initialising an instance of Apache Spark")
     conf = SparkConf()
     conf.setAll([
         ('spark.driver.maxResultSize', '20G'),
@@ -145,7 +145,7 @@ def getRdds(sc, file_tx, file_blocks, file_coingen, file_vin, file_vout, file_vj
     taken from gkappos' spark code
     :return: many items
     '''
-    # if files dont exist and i cant read them then quit
+    # if files don't exist and I can't read them then quit
     checkFilesExist([file_tx, file_blocks, file_coingen, file_vin, file_vout, file_vjoinsplit])
 
     tx = sc.textFile(file_tx)
@@ -249,7 +249,7 @@ def getRdds(sc, file_tx, file_blocks, file_coingen, file_vin, file_vout, file_vj
 def readDataframeFromPostgres(sql_sc, url, properties, blockheight):
     '''
     This method reads the dataframes directly from postgres.
-    It returns smaller sized dataframes upto the blocklimit.
+    It returns smaller sized dataframes up to the blocklimit.
     :param sc:
     :param sql_sc:
     :param blocklimit: the number of blocks to process up to
@@ -638,19 +638,19 @@ def loadAddressesFromCsv(path=conf.pathresearch):
                 t13980obkl08819;exchangeX
         - founders_addresses.csv
             single column csv file with header 'address'
-            each address is on a seperate line
+            each address is on a separate line
             these addresses are the founders addresses
         - miners_addresses.csv
             single column csv file with header 'address'
-            each address is on a seperate line
+            each address is on a separate line
             these addresses are the miners addresses
         - miners_heuristic_addresses.csv
             single column csv file with header 'address'
-            each address is on a seperate line
+            each address is on a separate line
             these addresses are the miners addresses from the mining heuristic,
         - founders_heuristic_addresses.csv
             single column csv file with the header 'address'
-            each address is on a seperate line
+            each address is on a separate line
             these addresses are the founders addresses from the founders heuristic
 
     '''
@@ -769,7 +769,7 @@ def getSingleAddressStats(vi, vo, vjx,maxBlockHeight, minBlockHeught,addressToFi
     * = done, ? = Not done
         * From what block numbers
         * Total Number of TXs Sent
-        * Total Number of TXs recieved
+        * Total Number of TXs received
         * Type of address - If founder or miner
         * How many Coingens its done (number of blocks mined)
         * Total ZEC put into the pool
@@ -796,7 +796,7 @@ def getSingleAddressStats(vi, vo, vjx,maxBlockHeight, minBlockHeught,addressToFi
         # src_addrs = getSrcAddresses(transactionsSent)
         totalShielded = vjoinsIn.map(lambda x: x[1][1][2]).sum()
         if vjoinsIn.count() != vjoinsIn.filter(lambda x: x[1][1][2] > 0).count():
-            print "error with vjoinin so dont belive the sum or count"
+            print "error with vjoinin so don't believe the sum or count"
     else:
         totalSent = 0
         vjoinsInCount = 0
@@ -830,7 +830,7 @@ def getSingleAddressStats(vi, vo, vjx,maxBlockHeight, minBlockHeught,addressToFi
             totalDeshielded = 0
 
         if vjoinsOutCount != vjoinsOut.filter(lambda x: x[1][1][3] > 0).count():
-            print "error with vjoinout so dont belive the sum or count"
+            print "error with vjoinout so don't believe the sum or count"
     else:
         totalRecv = 0
         coingensCount = 0
@@ -906,7 +906,7 @@ def flatudf(x):
 
 def getInputAddresses(dfvi, dfvo):
     '''
-    Gets input addresss for the vinputs
+    Gets input address for the vinputs
     :param dfvi:
     :param dfvo:
     :return:
