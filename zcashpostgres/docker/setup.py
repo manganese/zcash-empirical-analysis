@@ -6,7 +6,7 @@ d8888888P  a88888b.  .d888888  .d88888b  dP     dP
 d8'       Y8.   .88 88     88  d8'   .8P 88     88
 Y8888888P  Y88888P' 88     88   Y88888P  dP     dP
 
-This script sets up the zcash database
+This script sets up the Zcash database
 - Drops all previous tables and creates new ones based on table_classes.py
 - You must have the database and user already created
 '''
@@ -22,7 +22,7 @@ if __name__ == '__main__':
     print("Checking if %s database is present" % conf.POSTGRES_DB)
     engine = create_engine(("postgres://postgres@localhost/%s" % conf.POSTGRES_DB))
     if not database_exists(engine.url):
-        print("Database doesnt exist, creating...")
+        print("Database doesn't exist, creating...")
         create_database(engine.url)
     print("Connecting to %s database" % conf.POSTGRES_DB)
     con, meta = dbLib.connect(db=conf.POSTGRES_DB)
