@@ -161,7 +161,7 @@ ADD docker/*.py $SCRIPTS/
 RUN mkdir -p "$PGDATA" && chown -R postgres:postgres "$PGDATA" && chmod 777 "$PGDATA" # this 777 will be replaced by 700 at runtime (allows semi-arbitrary "--user" values)
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
-RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compatability
+RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compatibility
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 VOLUME ["/var/run/postgresql/data/pgdata"]
