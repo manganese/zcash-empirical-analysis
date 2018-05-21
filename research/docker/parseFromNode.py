@@ -23,7 +23,7 @@ getcontext().prec = 8
 
 def checkZcashCLI():
     """
-    Checks if the Zcashd is running
+    Checks if zcashd is running
     Prints stuff, returns nothing or exits the program
     """
     print("Setting environment variable to mainnet")
@@ -218,7 +218,7 @@ def fillDataFrames(sc, sql_sc, blocklimit):
                 ]
             #print("Processed tx :", tx_hash)
             objects['transaction'].append(transaction)
-            # now check the values to see if its a coingen, vin, vout and vjoinsplit fields
+            # now check the values to see if it's a coingen, vin, vout and vjoinsplit fields
             all_src_addresses = []
             if len(tx["vin"]):
                 for val in tx["vin"]:
@@ -286,7 +286,7 @@ def fillDataFrames(sc, sql_sc, blocklimit):
                     # t-z
                     # z-t
                     # t-z
-                    # dont use the crappy all_src_address value
+                    # don't use the crappy all_src_address value
                     dest_addr = []
                     if len(tx["vout"])==0 and len(tx["vin"])==0 and Decimal(val["vpub_new"])>0.0:
                         # this is change
@@ -321,7 +321,7 @@ def fillDataFrames(sc, sql_sc, blocklimit):
 
 def main():
 
-    print("Connecting to zcash node")
+    print("Connecting to Zcash node")
     sc, sql_sc = hf.initiateSpark()
     path = conf.pathresearch
     checkZcashCLI()
